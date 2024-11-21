@@ -37,9 +37,8 @@ MSE measures the average squared difference between predicted and actual values.
 
 **Formula:**
 
-$$
-\text{Loss}_{\text{MSE}} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2
-$$
+$$ \text{Loss}_{\text{MSE}} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 $$
+
 
 **Characteristics:**
 - Penalizes large errors more heavily than small errors.
@@ -51,9 +50,8 @@ MAE measures the average absolute difference between predicted and actual values
 
 **Formula:**
 
-$$
-\text{Loss}_{\text{MAE}} = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i|
-$$
+$$ \text{Loss}_{\text{MAE}} = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i| $$
+
 
 **Characteristics:**
 - Robust to outliers.
