@@ -37,7 +37,11 @@ MSE measures the average squared difference between predicted and actual values.
 
 **Formula:**
 
-$$ \text{Loss}_{\text{MSE}} = \frac{1}{N} \sum_{i=1}^{N} (y_i - \hat{y}_i)^2 $$
+$$ 
+\text{Loss}_{\text{MSE}} = 
+\frac{1}{N} 
+\sum_{i=1}^{N} (y_i - \hat{y}_i)^2 
+$$
 
 
 **Characteristics:**
@@ -50,7 +54,11 @@ MAE measures the average absolute difference between predicted and actual values
 
 **Formula:**
 
-$$ \text{Loss}_{\text{MAE}} = \frac{1}{N} \sum_{i=1}^{N} |y_i - \hat{y}_i| $$
+$$
+\text{Loss}_{\text{MAE}} = 
+\frac{1}{N} 
+\sum_{i=1}^{N} |y_i - \hat{y}_i| 
+$$
 
 
 **Characteristics:**
@@ -82,7 +90,9 @@ Log-Cosh Loss uses the hyperbolic cosine function to compute the loss. It is smo
 **Formula:**
 
 $$
-\text{Loss}_{\text{Log-Cosh}} = \sum_{i=1}^{N} \log(\cosh(y_i - \hat{y}_i))
+\text{Loss}_{\text{Log-Cosh}} = 
+\sum_{i=1}^{N} 
+\log(\cosh(y_i - \hat{y}_i))
 $$
 
 **Characteristics:**
@@ -108,3 +118,12 @@ Where \( \tau \) (e.g., 0.5 for the median) is the quantile to predict.
 **Characteristics:**
 - Allows prediction of medians and other percentiles.
 - Useful for modeling asymmetric data distributions.
+
+
+| **Loss Function**   | **Key Characteristics**                                            | **Suitable For**                                                       |
+|---------------------|---------------------------------------------------------------------|------------------------------------------------------------------------|
+| **Mean Squared Error (MSE)** | Penalizes large errors more heavily; sensitive to outliers.          | General regression tasks; when you need to minimize large errors.      |
+| **Mean Absolute Error (MAE)** | Robust to outliers; less sensitive to large errors than MSE.         | Regression with outliers or when large errors shouldn't dominate.       |
+| **Huber Loss**      | Combines MSE and MAE; smooth and differentiable; robust to outliers.  | Regression with noisy data or outliers; when a balance is needed.      |
+| **Log-Cosh Loss**   | Smooth, less sensitive to large errors than MSE; behaves like MSE for small errors. | Robust regression; when large errors should not be heavily penalized. |
+| **Quantile Loss**   | Asymmetric; useful for predicting specific percentiles (e.g., median). | Predicting quantiles (e.g., median, 90th percentile) or skewed data.   |
