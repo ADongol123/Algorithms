@@ -3,6 +3,7 @@ import numpy as np
 def sigmoid(x):
     return 1/(1+np.exp(-x))
 
+
 class LogisticRegression:
     def __init__(self, lr=0.1, n_iters=1000):
         self.lr = lr
@@ -10,16 +11,17 @@ class LogisticRegression:
         self.weights = None
         self.bias = None
 
-    def fit(self, X, y):
+    def fit(self, X, y,loss_function = binary_cross_entropy):
         n_samples, n_features = X.shape
         self.weights = np.zeros(n_features)
         self.bias = 0
-
+		self.loss_history = []
+		
         for _ in range(self.n_iters):
             linear_pred = np.dot(X, self.weights) + self.bias
             predictions = sigmoid(linear_pred)
-
-            # This part is same as the Linear regression
+			
+            # This part is the gradient descent 
             dw = (1/n_samples) * np.dot(X.T, (predictions - y))
             db = (1/n_samples) * np.sum(predictions-y)
 
