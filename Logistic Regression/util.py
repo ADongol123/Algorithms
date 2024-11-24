@@ -1,3 +1,5 @@
+import numpy as np
+
 def binary_cross_entropy(y_true,y_pred):
 	epsilon = 1e-15
 	y_pred = np.clip(y_pred,epsilon,1-epsilon)
@@ -13,5 +15,21 @@ def hinge_loss(y_true,y_pred):
 	"""
 	y_true = np.where(y_true == 0, -1 , 1)
 	return np.mean(np.maximum(0,1-y_pred))
+
+
+def categorical_cross_entropy(y_true, y_pred):
+    """
+    Categorical Cross-Entropy Loss for multiclass classification.
+    
+    Parameters:
+    y_true (array-like): Ground truth one-hot encoded labels.
+    y_pred (array-like): Predicted probabilities for each class.
+
+    Returns:
+    float: Mean categorical cross-entropy loss.
+    """
+    epsilon = 1e-15  # Small constant to avoid log(0)
+    y_pred = np.clip(y_pred, epsilon, 1 - epsilon)
+    return -np.mean(np.sum(y_true * np.log(y_pred), axis=1))
 
 

@@ -1,5 +1,5 @@
 import numpy as np
-
+from util import binary_cross_entropy
 def sigmoid(x):
     return 1/(1+np.exp(-x))
 
@@ -15,8 +15,8 @@ class LogisticRegression:
         n_samples, n_features = X.shape
         self.weights = np.zeros(n_features)
         self.bias = 0
-		self.loss_history = []
-		
+        self.loss_history = []
+        
         for _ in range(self.n_iters):
             linear_pred = np.dot(X, self.weights) + self.bias
             predictions = sigmoid(linear_pred)

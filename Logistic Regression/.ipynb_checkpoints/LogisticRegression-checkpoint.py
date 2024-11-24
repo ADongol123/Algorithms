@@ -1,5 +1,5 @@
 import numpy as np
-
+from util import binary_cross_entropy
 def sigmoid(x):
     return 1/(1+np.exp(-x))
 
